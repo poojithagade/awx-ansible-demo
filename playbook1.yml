@@ -7,9 +7,9 @@
     db_user: awxuser
     db_pass: pooja
   tasks:
-    # - name: Add users
-    #   debug:
-    #     msg: "{{ 'test' | insert_user_filter }}"
+    - name: Add users
+      debug:
+        msg: "{{ 'test' | insert_user_filter }}"
 
     - name: Run SELECT query
       postgresql_query:
