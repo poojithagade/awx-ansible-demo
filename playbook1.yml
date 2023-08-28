@@ -1,0 +1,30 @@
+---
+- name: Run PostgreSQL SELECT Query
+  hosts: localhost
+  gather_facts: no
+  vars: 
+    db_name: testdb 
+    db_user: awxuser
+    db_pass: pooja
+  tasks:
+    # - name: Add users
+    #   debug:
+    #     msg: "{{ 'test' | insert_user_filter }}"
+
+    - name: Run SELECT query
+      postgresql_query:
+        login_host: localhost
+        login_user: "{{ db_user }}"
+        login_password: "{{ db_pass }}"
+        login_db: "{{ db_name }}"
+        query: "SELECT * FROM users"
+      register: user_data
+
+    - name: Display sers
+      debug:
+        msg: "{{ user_data.query_result }}"
+
+    - name: Export users to csv
+      debug:
+        msg: "{{ user_data | export_users_filter }}"
+
