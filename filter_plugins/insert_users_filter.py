@@ -8,7 +8,8 @@ class FilterModule(object):
             'insert_user_filter': self.insert_user,
             'export_users_filter': self.export_users_filter
         }
- 
+
+    
     def insert_user(self, var):
         # PostgreSQL connection details for the first database 
         host = "localhost" 
