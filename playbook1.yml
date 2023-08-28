@@ -19,7 +19,7 @@
         login_db: "{{ db_name }}"
         query: "SELECT * FROM users"
       register: user_data
-
+      
     - name: Display sers
       debug:
         msg: "{{ user_data.query_result }}"
