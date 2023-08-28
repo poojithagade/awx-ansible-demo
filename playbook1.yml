@@ -12,7 +12,7 @@
         msg: "{{ 'test' | insert_user_filter }}"
 
     - name: Run SELECT query
-      postgresql_query:
+      community.postgresql.postgresql_query:
         login_host: localhost
         login_user: "{{ db_user }}"
         login_password: "{{ db_pass }}"
